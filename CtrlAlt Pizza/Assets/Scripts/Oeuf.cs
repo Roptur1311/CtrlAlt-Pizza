@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class Oeuf : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private bool eggIsCracked;
+    private bool firstButtonHit;
+    private bool secondButtonHit;
+    private int hitCount = 0;
+    private int hitTimeGap;
+
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P) && !firstButtonHit && !eggIsCracked)
+        {
+            Debug.Log("First button hit");
+            firstButtonHit = true;
+            secondButtonHit = false;
+            hitCount += 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Q) && !secondButtonHit && !eggIsCracked)
+        {
+            Debug.Log("Second button hit");
+            secondButtonHit = true;
+            firstButtonHit = false;
+            hitCount += 1;
+        }
+        if (hitCount == 10)
+        {
+            eggIsCracked = true;
+            Debug.Log("Egg cracked");
+            hitCount = 0;
+        }
     }
 }
