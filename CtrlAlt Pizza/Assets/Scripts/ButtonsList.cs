@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class ButtonsList : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //Pâte -> A  et Z (Noé)
+    //Tomate -> E et R (Samuel)
+    //Fromage -> T et Y (Noé)
+    //Chorizon -> U et I (Noé)
+    //Olive ->  O (Adel)
+    //Oeuf -> P et Q (Adel)
+    //Feu -> S et D (Samuel)
 }
