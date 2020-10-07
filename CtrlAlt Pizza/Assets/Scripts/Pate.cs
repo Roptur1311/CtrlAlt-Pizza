@@ -9,6 +9,8 @@ public class Pate : MonoBehaviour
     private bool back;
     private int backCounter;
 
+    private bool doughDone;
+
     void Start()
     {
         forward = true;
@@ -16,11 +18,13 @@ public class Pate : MonoBehaviour
 
         forwardCounter = 0;
         backCounter = 0;
+
+        doughDone = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && back == true)
+        if (Input.GetKeyDown(KeyCode.A) && back == true && doughDone == false)
         {
             forward = true;
             back = false;
@@ -30,7 +34,7 @@ public class Pate : MonoBehaviour
             Debug.Log("forwardCounter : " + forwardCounter);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && forward == true)
+        if (Input.GetKeyDown(KeyCode.Z) && forward == true && doughDone == false)
         {
             back = true;
             forward = false;
@@ -40,9 +44,10 @@ public class Pate : MonoBehaviour
             Debug.Log("backCounter : " + backCounter);
         }
 
-        if (forwardCounter == 10 && backCounter == 10)/*valeur provisoire*/
+        if (forwardCounter == 10 && backCounter == 10 && doughDone == false)/*valeur provisoire*/
         {
             Debug.Log("Pâte étalée");
+            doughDone = true;
         }
     }
 }

@@ -9,6 +9,8 @@ public class Fromage : MonoBehaviour
     private bool bottom;
     private int bottomCounter;
 
+    private bool cheeseDone;
+
     void Start()
     {
         top = true;
@@ -16,11 +18,13 @@ public class Fromage : MonoBehaviour
 
         topCounter = 0;
         bottomCounter = 0;
+
+        cheeseDone = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T) && bottom == true)
+        if (Input.GetKeyDown(KeyCode.T) && bottom == true && cheeseDone == false)
         {
             top = true;
             bottom = false;
@@ -30,7 +34,7 @@ public class Fromage : MonoBehaviour
             Debug.Log("topCounter : " + topCounter);
         }
 
-        if (Input.GetKeyDown(KeyCode.Y) && top == true)
+        if (Input.GetKeyDown(KeyCode.Y) && top == true && cheeseDone == false)
         {
             bottom = true;
             top = false;
@@ -40,9 +44,10 @@ public class Fromage : MonoBehaviour
             Debug.Log("bottomCounter : " + bottomCounter);
         }
 
-        if (topCounter == 10 && bottomCounter == 10)/*valeur provisoire*/
+        if (topCounter == 10 && bottomCounter == 10 && cheeseDone == false)/*valeur provisoire*/
         {
             Debug.Log("Fromage ajouté");
+            cheeseDone = true;
         }
     }
 }

@@ -9,6 +9,8 @@ public class Chorizo : MonoBehaviour
     private bool right;
     private int rightCounter;
 
+    private bool chorizoDone;
+
     void Start()
     {
         left = true;
@@ -16,11 +18,13 @@ public class Chorizo : MonoBehaviour
 
         leftCounter = 0;
         rightCounter = 0;
+
+        chorizoDone = false;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U) && right == true)
+        if (Input.GetKeyDown(KeyCode.U) && right == true && chorizoDone == false)
         {
             left = true;
             right = false;
@@ -30,7 +34,7 @@ public class Chorizo : MonoBehaviour
             Debug.Log("leftCounter : " + leftCounter);
         }
 
-        if (Input.GetKeyDown(KeyCode.I) && left == true)
+        if (Input.GetKeyDown(KeyCode.I) && left == true && chorizoDone == false)
         {
             right = true;
             left = false;
@@ -40,9 +44,10 @@ public class Chorizo : MonoBehaviour
             Debug.Log("rightCounter : " + rightCounter);
         }
 
-        if (leftCounter == 10 && rightCounter == 10)/*valeur provisoire*/
+        if (leftCounter == 10 && rightCounter == 10 && chorizoDone == false)/*valeur provisoire*/
         {
             Debug.Log("Chorizo ajouté");
+            chorizoDone = true;
         }
     }
 }
