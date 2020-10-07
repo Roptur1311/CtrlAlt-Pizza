@@ -8,46 +8,27 @@ public class Oeuf : MonoBehaviour
     private bool eggIsCracked;
     private bool firstButtonHit;
     private bool secondButtonHit;
+    private bool goToSecondTimer;
     private int hitCount = 0;
     private float timer = 0.0f;
+    private float secondTimer = 0.0f;
     private float hitTimeGap = 0.0f;
-
-    void Start()
-    {        
-        
-    }
+    private float marginError = 0.5f;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !firstButtonHit && !secondButtonHit && !eggIsCracked && !rhythmIsDecided)
-        {          
-            Debug.Log("First button hit");
-            firstButtonHit = true;            
-        }       
 
-        if (Input.GetKeyDown(KeyCode.Q) && firstButtonHit && !eggIsCracked && !rhythmIsDecided)
+        if (!rhythmIsDecided)
         {
-            hitTimeGap = timer;
-            Debug.Log("Second button hit");
-            hitCount += 1;
-            rhythmIsDecided = true;
+            StartCoroutine(Rhythm());
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && !firstButtonHit && !secondButtonHit && !eggIsCracked && !rhythmIsDecided)
+        if (rhythmIsDecided && !eggIsCracked)
         {
-            Debug.Log("Second button hit");
-            secondButtonHit = true;           
+            StartCoroutine(EggCrack());
         }
 
-        if (Input.GetKeyDown(KeyCode.P) && secondButtonHit && !eggIsCracked && !rhythmIsDecided)
-        {
-            hitTimeGap = timer;
-            Debug.Log("First button hit");
-            hitCount += 1;
-            rhythmIsDecided = true;
-        }
-
-        if (firstButtonHit || secondButtonHit)
+        if ((!firstButtonHit && secondButtonHit) || (firstButtonHit && !secondButtonHit))
         {
             timer += Time.deltaTime;
         }
@@ -57,10 +38,15 @@ public class Oeuf : MonoBehaviour
             Debug.Log(hitTimeGap);
         }
 
-        /*if (!rhythmIsDecided)
+        if (goToSecondTimer == true)
         {
-            StartCoroutine(Rhythm());
-        }*/
+            secondTimer += Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log(secondTimer);
+        }
 
         if (hitCount == 10)
         {
@@ -71,39 +57,60 @@ public class Oeuf : MonoBehaviour
     }
 
     IEnumerator Rhythm()
-    {      
-        if (Input.GetKeyDown(KeyCode.P) && !firstButtonHit && !eggIsCracked)
+    {
+
+        if (Input.GetKeyDown(KeyCode.P) && !firstButtonHit && !secondButtonHit)
         {
-            timer += Time.deltaTime;
             Debug.Log("First button hit");
             firstButtonHit = true;
-            secondButtonHit = false;
-
-            if (Input.GetKeyDown(KeyCode.Q) && !secondButtonHit && !eggIsCracked)
-            {
-                hitTimeGap = timer;
-                Debug.Log("Second button hit");
-                secondButtonHit = true;
-                firstButtonHit = false;
-                rhythmIsDecided = true;
-            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && !secondButtonHit && !eggIsCracked)
+        if (Input.GetKeyDown(KeyCode.Q) && firstButtonHit)
         {
-            timer += Time.deltaTime;
+            hitTimeGap = timer;
+            Debug.Log("Second button hit");
+            hitCount += 1;
+            rhythmIsDecided = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && !firstButtonHit && !secondButtonHit)
+        {
             Debug.Log("Second button hit");
             secondButtonHit = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) && secondButtonHit)
+        {
+            hitTimeGap = timer;
+            Debug.Log("First button hit");
+            hitCount += 1;
+            rhythmIsDecided = true;
+        }      
+
+        yield return null;
+
+    }
+
+    IEnumerator EggCrack()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && firstButtonHit && !secondButtonHit)
+        {
+            Debug.Log("First button hit");
+            goToSecondTimer = true;
             firstButtonHit = false;
-            if (Input.GetKeyDown(KeyCode.P) && !secondButtonHit && !eggIsCracked)
-            {
-                hitTimeGap = timer;
-                Debug.Log("First button hit");
-                firstButtonHit = true;
-                secondButtonHit = false;
-                rhythmIsDecided = true;
-            }
-        }               
+            secondButtonHit = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && secondButtonHit && !firstButtonHit)
+        {
+            Debug.Log("Second button hit");
+            goToSecondTimer = true;
+            firstButtonHit = true;
+            secondButtonHit = false;
+        }
+
+
+
         yield return null;
     }
 }
