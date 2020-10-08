@@ -25,49 +25,68 @@ public class Tomate : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && fin == false)
+        if (Input.GetKeyDown(KeyCode.E) && p2 == false && fin == false)
         {
-            timer = 0.0f;
+            
             p1 = true;
             Debug.Log("E pressed");
-            timer += Time.deltaTime;
-            Debug.Log(timer);
+            
+            //Debug.Log(timer);
 
             
-            Debug.Log("En attente de p2");
+            //Debug.Log("En attente de p2");
 
-            if (timer <= 1.5f && Input.GetKeyDown(KeyCode.R) && p1 && fin == false)
-            {
-                Debug.Log(timer);
-                Debug.Log("R pressed");
+            
+        }
+        if (timer <= 1.5f && Input.GetKeyDown(KeyCode.R) && p1 == true  && p2 == false && fin == false)
+        {
+            Debug.Log(timer);
+            Debug.Log("R pressed 2");
 
-                p2 = true;
-                timer = 0.0f;
-            }
+            p2 = true;
+            
+        }
+        else if (timer > 1.5f && p1 == true)
+        {
+            p1 = false;
+            timer = 0.0f;
+            Debug.Log("putain ca marche pas !");
         }
 
-       
 
 
-        if (Input.GetKeyDown(KeyCode.R) && fin == false)
+
+        if (Input.GetKeyDown(KeyCode.R) && p1 == false && fin == false)
         {
-            timer = 0.0f;
+            
             p2 = true;
             Debug.Log("R pressed");
-            timer += Time.deltaTime;
+            
+            //Debug.Log(timer);
+
+
+            //Debug.Log("En attente de p1");
+
+            
+        }
+        if (timer <= 1.5f && Input.GetKeyDown(KeyCode.E) && p2 == true && p1 == false && fin == false)
+        {
             Debug.Log(timer);
+            Debug.Log("E pressed 2");
 
+            p1 = true;
+            
+        }
+        else if (timer > 1.5f && p2 == true)
+        {
+            p2 = false;
+            timer = 0.0f;
+            Debug.Log("putain ca marche pas !");
+        }
 
-            Debug.Log("En attente de p1");
-
-            if (timer <= 1.5f && Input.GetKeyDown(KeyCode.E) && p2 && fin == false)
-            {
-                Debug.Log(timer);
-                Debug.Log("E pressed");
-
-                p1 = true;
-                timer = 0.0f;
-            }
+        if (p1 == true || p2 == true)
+        {
+            timer += Time.deltaTime;
         }
 
        
