@@ -29,14 +29,7 @@ public class Tomate : MonoBehaviour
         {
             
             p1 = true;
-            Debug.Log("E pressed");
-            
-            //Debug.Log(timer);
-
-            
-            //Debug.Log("En attente de p2");
-
-            
+            Debug.Log("E pressed");            
         }
         if (timer <= 1.5f && Input.GetKeyDown(KeyCode.R) && p1 == true  && p2 == false && fin == false)
         {
@@ -60,14 +53,7 @@ public class Tomate : MonoBehaviour
         {
             
             p2 = true;
-            Debug.Log("R pressed");
-            
-            //Debug.Log(timer);
-
-
-            //Debug.Log("En attente de p1");
-
-            
+            Debug.Log("R pressed");                       
         }
         if (timer <= 1.5f && Input.GetKeyDown(KeyCode.E) && p2 == true && p1 == false && fin == false)
         {
@@ -87,12 +73,8 @@ public class Tomate : MonoBehaviour
         if (p1 == true || p2 == true)
         {
             timer += Time.deltaTime;
-        }
-
-       
-       
-
-
+        }   
+        
         if (p1 == true && p2 == true && fin == false)
         {
             playerCount += 1;
