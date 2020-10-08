@@ -2,28 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Feu : MonoBehaviour
+namespace minigame
 {
-    private bool feu;
-
-    void Start()
+    public class Feu : MonoBehaviour
     {
-        feu = true;
-    }
+        public bool feu;
+        private bool allumette;
+        private bool bois;
 
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
+        void Start()
         {
-                feu = false;
-
-                Debug.Log(" Le feu est prêt à être allumé");
+            feu = false;
+            allumette = false;
+            bois = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.D) && feu == false)
+        void Update()
         {
+            if (Input.GetKeyDown(KeyCode.S) && feu == false)
+            {
+                bois = true;
+
+                Debug.Log(" Le bois est déposé");
+            }
+
+            if (Input.GetKeyDown(KeyCode.D) && feu == false)
+            {
+                allumette = true;
+
+                Debug.Log(" Allumette allumée");
+            }
+
+            if (allumette== true && bois == true && feu == false)
+            {
+                feu = true;
                 Debug.Log("Le feu est allumé");
+            }
         }
     }
 }

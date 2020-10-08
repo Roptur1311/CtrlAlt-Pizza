@@ -2,52 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fromage : MonoBehaviour
+namespace minigame
 {
-    private bool top;
-    private int topCounter;
-    private bool bottom;
-    private int bottomCounter;
-
-    private bool cheeseDone;
-
-    void Start()
+    public class Fromage : MonoBehaviour
     {
-        top = true;
-        bottom = true;
+        private bool top;
+        private int topCounter;
+        private bool bottom;
+        private int bottomCounter;
 
-        topCounter = 0;
-        bottomCounter = 0;
+        public bool cheeseDone;
 
-        cheeseDone = false;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T) && bottom == true && cheeseDone == false)
+        void Start()
         {
             top = true;
-            bottom = false;
-
-            topCounter = topCounter + 1;
-
-            Debug.Log("topCounter : " + topCounter);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y) && top == true && cheeseDone == false)
-        {
             bottom = true;
-            top = false;
 
-            bottomCounter = bottomCounter + 1;
+            topCounter = 0;
+            bottomCounter = 0;
 
-            Debug.Log("bottomCounter : " + bottomCounter);
+            cheeseDone = false;
         }
 
-        if (topCounter == 10 && bottomCounter == 10 && cheeseDone == false)/*valeur provisoire*/
+        void Update()
         {
-            Debug.Log("Fromage ajouté");
-            cheeseDone = true;
+            if (Input.GetKeyDown(KeyCode.T) && bottom == true && cheeseDone == false)
+            {
+                top = true;
+                bottom = false;
+
+                topCounter = topCounter + 1;
+
+                Debug.Log("topCounter : " + topCounter);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Y) && top == true && cheeseDone == false)
+            {
+                bottom = true;
+                top = false;
+
+                bottomCounter = bottomCounter + 1;
+
+                Debug.Log("bottomCounter : " + bottomCounter);
+            }
+
+            if (topCounter == 10 && bottomCounter == 10 && cheeseDone == false)/*valeur provisoire*/
+            {
+                Debug.Log("Fromage ajouté");
+                cheeseDone = true;
+            }
         }
     }
 }

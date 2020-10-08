@@ -2,52 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chorizo : MonoBehaviour
+namespace minigame
 {
-    private bool left;
-    private int leftCounter;
-    private bool right;
-    private int rightCounter;
-
-    private bool chorizoDone;
-
-    void Start()
+    public class Chorizo : MonoBehaviour
     {
-        left = true;
-        right = true;
+        private bool left;
+        private int leftCounter;
+        private bool right;
+        private int rightCounter;
 
-        leftCounter = 0;
-        rightCounter = 0;
+        public bool chorizoDone;
 
-        chorizoDone = false;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U) && right == true && chorizoDone == false)
+        void Start()
         {
             left = true;
-            right = false;
-
-            leftCounter = leftCounter + 1;
-
-            Debug.Log("leftCounter : " + leftCounter);
-        }
-
-        if (Input.GetKeyDown(KeyCode.I) && left == true && chorizoDone == false)
-        {
             right = true;
-            left = false;
 
-            rightCounter = rightCounter + 1;
+            leftCounter = 0;
+            rightCounter = 0;
 
-            Debug.Log("rightCounter : " + rightCounter);
+            chorizoDone = false;
         }
 
-        if (leftCounter == 10 && rightCounter == 10 && chorizoDone == false)/*valeur provisoire*/
+        void Update()
         {
-            Debug.Log("Chorizo ajouté");
-            chorizoDone = true;
+            if (Input.GetKeyDown(KeyCode.U) && right == true && chorizoDone == false)
+            {
+                left = true;
+                right = false;
+
+                leftCounter = leftCounter + 1;
+
+                Debug.Log("leftCounter : " + leftCounter);
+            }
+
+            if (Input.GetKeyDown(KeyCode.I) && left == true && chorizoDone == false)
+            {
+                right = true;
+                left = false;
+
+                rightCounter = rightCounter + 1;
+
+                Debug.Log("rightCounter : " + rightCounter);
+            }
+
+            if (leftCounter == 10 && rightCounter == 10 && chorizoDone == false)/*valeur provisoire*/
+            {
+                Debug.Log("Chorizo ajouté");
+                chorizoDone = true;
+            }
         }
     }
 }

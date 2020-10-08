@@ -2,52 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pate : MonoBehaviour
+namespace minigame
 {
-    private bool forward;
-    private int forwardCounter;
-    private bool back;
-    private int backCounter;
-
-    private bool doughDone;
-
-    void Start()
+    public class Pate : MonoBehaviour
     {
-        forward = true;
-        back = true;
+        private bool forward;
+        private int forwardCounter;
+        private bool back;
+        private int backCounter;
 
-        forwardCounter = 0;
-        backCounter = 0;
+        public bool doughDone;
 
-        doughDone = false;
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A) && back == true && doughDone == false)
+        void Start()
         {
             forward = true;
-            back = false;
-
-            forwardCounter = forwardCounter + 1;
-
-            Debug.Log("forwardCounter : " + forwardCounter);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z) && forward == true && doughDone == false)
-        {
             back = true;
-            forward = false;
 
-            backCounter = backCounter + 1;
+            forwardCounter = 0;
+            backCounter = 0;
 
-            Debug.Log("backCounter : " + backCounter);
+            doughDone = false;
         }
 
-        if (forwardCounter == 10 && backCounter == 10 && doughDone == false)/*valeur provisoire*/
+        void Update()
         {
-            Debug.Log("Pâte étalée");
-            doughDone = true;
+            if (Input.GetKeyDown(KeyCode.A) && back == true && doughDone == false)
+            {
+                forward = true;
+                back = false;
+
+                forwardCounter = forwardCounter + 1;
+
+                Debug.Log("forwardCounter : " + forwardCounter);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Z) && forward == true && doughDone == false)
+            {
+                back = true;
+                forward = false;
+
+                backCounter = backCounter + 1;
+
+                Debug.Log("backCounter : " + backCounter);
+            }
+
+            if (forwardCounter == 10 && backCounter == 10 && doughDone == false)/*valeur provisoire*/
+            {
+                Debug.Log("Pâte étalée");
+                doughDone = true;
+            }
         }
     }
 }
