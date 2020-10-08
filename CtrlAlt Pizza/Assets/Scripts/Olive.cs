@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Olive : MonoBehaviour
+namespace minigame
 {
-    private bool olivePitted;
-    private int hitCount = 0;
-
-    void Update()
+    public class Olive : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.O) && !olivePitted)
+        public bool olivePitted;
+        private int hitCount = 0;
+
+        void Update()
         {
-            Debug.Log("Olive touchée");
-            hitCount += 1;
-        }
-        if (hitCount == 10)
-        {
-            Debug.Log("L'olive est dénoyautée");
-            hitCount = 0;
-            olivePitted = true;
+            if (Input.GetKeyDown(KeyCode.O) && !olivePitted)
+            {
+                Debug.Log("Olive touchée");
+                hitCount += 1;
+            }
+            if (hitCount == 10 && !olivePitted)
+            {
+                Debug.Log("L'olive est dénoyautée");
+                hitCount = 0;
+                olivePitted = true;
+            }
         }
     }
 }
