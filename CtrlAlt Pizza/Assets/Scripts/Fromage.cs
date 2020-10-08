@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using minigame;
 
 namespace minigame
 {
@@ -28,7 +29,7 @@ namespace minigame
 
         void Update()
         {
-            if (dough.doughDone == false && tomato.tomatoDone == true)
+            if (dough.doughDone == true && tomato.tomatoDone == true)
             {
                 if (Input.GetKeyDown(KeyCode.T) && bottom == true && cheeseDone == false)
                 {

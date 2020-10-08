@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tomatoDone: 0
-  dough: {fileID: 1721930774839885528, guid: df4a7420cfd0fd046a52b1cf426e868c, type: 3}
+  dough: {fileID: 0}

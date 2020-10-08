@@ -17,11 +17,15 @@ namespace minigame
         public Olive olive;
         public Oeuf egg;
 
+        public GameObject globalTimer;
+        private float finalTime;
+
         void Start()
         {
             feu = false;
             allumette = false;
             bois = false;
+            
         }
 
         void Update()
@@ -46,6 +50,9 @@ namespace minigame
                 {
                     feu = true;
                     Debug.Log("Le feu est allumé");
+
+                    finalTime = globalTimer.GetComponent<Timer>().timer;
+                    Debug.Log(finalTime);
                 }
             }
         }
