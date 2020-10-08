@@ -10,6 +10,13 @@ namespace minigame
         private bool allumette;
         private bool bois;
 
+        public Pate dough;
+        public Tomate tomato;
+        public Fromage cheese;
+        public Chorizo chorizo;
+        public Olive olive;
+        public Oeuf egg;
+
         void Start()
         {
             feu = false;
@@ -19,24 +26,27 @@ namespace minigame
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.S) && feu == false)
+            if (dough.doughDone == true && tomato.tomatoDone == true && cheese.cheeseDone == true && chorizo.chorizoDone == true && olive.olivePitted == true && egg.eggIsCracked == true)
             {
-                bois = true;
+                if (Input.GetKeyDown(KeyCode.S) && feu == false)
+                {
+                    bois = true;
 
-                Debug.Log(" Le bois est déposé");
-            }
+                    Debug.Log(" Le bois est déposé");
+                }
 
-            if (Input.GetKeyDown(KeyCode.D) && feu == false)
-            {
-                allumette = true;
+                if (Input.GetKeyDown(KeyCode.D) && feu == false)
+                {
+                    allumette = true;
 
-                Debug.Log(" Allumette allumée");
-            }
+                    Debug.Log(" Allumette allumée");
+                }
 
-            if (allumette== true && bois == true && feu == false)
-            {
-                feu = true;
-                Debug.Log("Le feu est allumé");
+                if (allumette == true && bois == true && feu == false)
+                {
+                    feu = true;
+                    Debug.Log("Le feu est allumé");
+                }
             }
         }
     }

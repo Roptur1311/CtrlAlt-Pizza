@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1225626670342205313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225626670342205312}
+  - component: {fileID: 1225626670342205319}
+  m_Layer: 0
+  m_Name: Feu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1225626670342205312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225626670342205313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8143673, y: -0.21445179, z: -0.62106705}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1225626670342205319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225626670342205313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146fbd0479958fd46933c1c97f88469d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feu: 0
+  dough: {fileID: 1721930774839885528, guid: df4a7420cfd0fd046a52b1cf426e868c, type: 3}
+  tomato: {fileID: 5603795939304004951, guid: d5dd716e5ad2e9f4f86aad02e02a237a, type: 3}
+  cheese: {fileID: 7117232856269161179, guid: fcd1370e699b2f548aa0bef7662da3b3, type: 3}
+  chorizo: {fileID: 1954639840607093351, guid: 9cbebed5ce5cc814687171ff308569b3, type: 3}
+  olive: {fileID: 452716958913135541, guid: 09bfd5caff66b494282bb3c6a184fdf9, type: 3}
+  egg: {fileID: 7979826466814106495, guid: b5d6b87dc7bf33c4d901213e76ea9697, type: 3}

@@ -10,6 +10,8 @@ namespace minigame
         private int topCounter;
         private bool bottom;
         private int bottomCounter;
+        public Pate dough;
+        public Tomate tomato;
 
         public bool cheeseDone;
 
@@ -26,30 +28,33 @@ namespace minigame
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.T) && bottom == true && cheeseDone == false)
+            if (dough.doughDone == false && tomato.tomatoDone == true)
             {
-                top = true;
-                bottom = false;
+                if (Input.GetKeyDown(KeyCode.T) && bottom == true && cheeseDone == false)
+                {
+                    top = true;
+                    bottom = false;
 
-                topCounter = topCounter + 1;
+                    topCounter = topCounter + 1;
 
-                Debug.Log("topCounter : " + topCounter);
-            }
+                    Debug.Log("topCounter : " + topCounter);
+                }
 
-            if (Input.GetKeyDown(KeyCode.Y) && top == true && cheeseDone == false)
-            {
-                bottom = true;
-                top = false;
+                if (Input.GetKeyDown(KeyCode.Y) && top == true && cheeseDone == false)
+                {
+                    bottom = true;
+                    top = false;
 
-                bottomCounter = bottomCounter + 1;
+                    bottomCounter = bottomCounter + 1;
 
-                Debug.Log("bottomCounter : " + bottomCounter);
-            }
+                    Debug.Log("bottomCounter : " + bottomCounter);
+                }
 
-            if (topCounter == 10 && bottomCounter == 10 && cheeseDone == false)/*valeur provisoire*/
-            {
-                Debug.Log("Fromage ajouté");
-                cheeseDone = true;
+                if (topCounter == 10 && bottomCounter == 10 && cheeseDone == false)/*valeur provisoire*/
+                {
+                    Debug.Log("Fromage ajouté");
+                    cheeseDone = true;
+                }
             }
         }
     }
