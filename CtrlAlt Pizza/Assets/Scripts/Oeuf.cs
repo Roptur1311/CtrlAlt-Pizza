@@ -63,6 +63,7 @@ public class Oeuf : MonoBehaviour
         {
             Debug.Log("First button hit");
             firstButtonHit = true;
+            hitCount += 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && firstButtonHit)
@@ -75,8 +76,9 @@ public class Oeuf : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q) && !firstButtonHit && !secondButtonHit)
         {
-            Debug.Log("Second button hit");
+            Debug.Log("Second button hit");         
             secondButtonHit = true;
+            hitCount += 1;
         }
 
         if (Input.GetKeyDown(KeyCode.P) && secondButtonHit)
@@ -93,23 +95,44 @@ public class Oeuf : MonoBehaviour
 
     IEnumerator EggCrack()
     {
-        if (Input.GetKeyDown(KeyCode.P) && firstButtonHit && !secondButtonHit)
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Q) && !goToSecondTimer)
         {
-            Debug.Log("First button hit");
             goToSecondTimer = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.P) && firstButtonHit && !secondButtonHit && (secondTimer > (hitTimeGap - marginError) && secondTimer < (hitTimeGap + marginError)))
+        {
+            Debug.Log("First button hit success");
             firstButtonHit = false;
             secondButtonHit = true;
+            secondTimer = 0;
+            hitCount += 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && secondButtonHit && !firstButtonHit)
+        if (Input.GetKeyDown(KeyCode.P) && firstButtonHit && !secondButtonHit && (secondTimer > (hitTimeGap + marginError) || secondTimer < (hitTimeGap - marginError)))
         {
-            Debug.Log("Second button hit");
-            goToSecondTimer = true;
+            Debug.Log("First button hit fail");
+            firstButtonHit = false;
+            secondButtonHit = true;
+            secondTimer = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && secondButtonHit && !firstButtonHit && (secondTimer > (hitTimeGap - marginError) && secondTimer < (hitTimeGap + marginError)))
+        {
+            Debug.Log("Second button hit success");
             firstButtonHit = true;
             secondButtonHit = false;
+            secondTimer = 0;
+            hitCount += 1;
         }
 
-
+        if (Input.GetKeyDown(KeyCode.Q) && secondButtonHit && !firstButtonHit && (secondTimer > (hitTimeGap + marginError) || secondTimer < (hitTimeGap - marginError)))
+        {
+            Debug.Log("Second button hit fail");
+            firstButtonHit = true;
+            secondButtonHit = false;
+            secondTimer = 0;
+        }
 
         yield return null;
     }
