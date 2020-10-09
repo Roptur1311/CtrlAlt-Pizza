@@ -10,6 +10,8 @@ namespace minigame
         private List<string> listScores;
         public Feu fire;
         private float time;
+        public Text affichage;
+        private string scoreTotal;
 
         private bool saved;
 
@@ -25,7 +27,6 @@ namespace minigame
             if (fire.fireDone == true && saved == false)
             {
                 time = fire.GetComponent<Feu>().finalTime;
-                string scoreTotal;
 
                 int minutes = Mathf.FloorToInt(time / 60F);
                 int seconds = Mathf.FloorToInt(time % 60F);
@@ -39,8 +40,13 @@ namespace minigame
                 Debug.Log(scoreTotal);
 
                 listScores.Add(scoreTotal);
+                Debug.Log(listScores[0] + "b");
                 listScores.Sort();
-                listScores.RemoveAt(10);
+                //listScores.RemoveAt(10);
+
+                affichage.text = listScores[0].ToString() + "\n" + listScores[1].ToString() + "\n" + listScores[2].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[4].ToString() + "\n" + listScores[5].ToString() + "\n" + listScores[6].ToString() + "\n" + listScores[7].ToString() + "\n" + listScores[8].ToString() + "\n" + listScores[9].ToString() + "\n";
+
+                saved = true;
             }
         }
     }
