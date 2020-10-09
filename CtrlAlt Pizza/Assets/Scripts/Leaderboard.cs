@@ -19,8 +19,7 @@ namespace minigame
             listScores = new List<string>();
 
         }
-
-
+        
         void Update()
         {
             if (fire.fireDone == true && saved == false)
@@ -41,7 +40,7 @@ namespace minigame
 
                 listScores.Add(scoreTotal);
                 listScores.Sort();
-                listScores.Remove();
+                listScores.RemoveAt(10);
             }
         }
     }
