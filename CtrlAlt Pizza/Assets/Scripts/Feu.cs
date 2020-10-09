@@ -6,37 +6,54 @@ namespace minigame
 {
     public class Feu : MonoBehaviour
     {
-        public bool feu;
+        public bool fireDone;
         private bool allumette;
         private bool bois;
 
+        public Pate dough;
+        public Tomate tomato;
+        public Fromage cheese;
+        public Chorizo chorizo;
+        public Olive olive;
+        public Oeuf egg;
+
+        public GameObject globalTimer;
+        public float finalTime;
+
         void Start()
         {
-            feu = false;
+            fireDone = false;
             allumette = false;
             bois = false;
+            
         }
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.S) && feu == false)
+            if (dough.doughDone == true && tomato.tomatoDone == true && cheese.cheeseDone == true && chorizo.chorizoDone == true && olive.olivePitted == true && egg.eggIsCracked == true)
             {
-                bois = true;
+                if (Input.GetKeyDown(KeyCode.S) && fireDone == false)
+                {
+                    bois = true;
 
-                Debug.Log(" Le bois est déposé");
-            }
+                    Debug.Log(" Le bois est déposé");
+                }
 
-            if (Input.GetKeyDown(KeyCode.D) && feu == false)
-            {
-                allumette = true;
+                if (Input.GetKeyDown(KeyCode.D) && fireDone == false)
+                {
+                    allumette = true;
 
-                Debug.Log(" Allumette allumée");
-            }
+                    Debug.Log(" Allumette allumée");
+                }
 
-            if (allumette== true && bois == true && feu == false)
-            {
-                feu = true;
-                Debug.Log("Le feu est allumé");
+                if (allumette == true && bois == true && fireDone == false)
+                {
+                    fireDone = true;
+                    Debug.Log("Le feu est allumé");
+
+                    finalTime = globalTimer.GetComponent<Timer>().timer;
+                    Debug.Log(finalTime);
+                }
             }
         }
     }

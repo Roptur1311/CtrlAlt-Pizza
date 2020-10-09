@@ -8,19 +8,26 @@ namespace minigame
     {
         public bool olivePitted;
         private int hitCount = 0;
+        public Pate dough;
+        public Tomate tomato;
+        public Fromage cheese;
+        public Chorizo chorizo;
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.O) && !olivePitted)
+            if (dough.doughDone == true && tomato.tomatoDone == true && cheese.cheeseDone == true && chorizo.chorizoDone == true)
             {
-                Debug.Log("Olive touchée");
-                hitCount += 1;
-            }
-            if (hitCount == 10 && !olivePitted)
-            {
-                Debug.Log("L'olive est dénoyautée");
-                hitCount = 0;
-                olivePitted = true;
+                if (Input.GetKeyDown(KeyCode.O) && !olivePitted)
+                {
+                    Debug.Log("Olive touchée");
+                    hitCount += 1;
+                }
+                if (hitCount == 10 && !olivePitted)
+                {
+                    Debug.Log("L'olive est dénoyautée");
+                    hitCount = 0;
+                    olivePitted = true;
+                }
             }
         }
     }

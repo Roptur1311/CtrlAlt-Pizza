@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using minigame;
 
 namespace minigame
 {
@@ -8,10 +9,9 @@ namespace minigame
     {
         private bool p1;
         private bool p2;
-        private bool tomatoDone;
+        public bool tomatoDone;
         private int playerCount;
-        
-        private bool doughDone;
+        public Pate dough;
 
         private float timer = 0.0f;
 
@@ -23,15 +23,13 @@ namespace minigame
             p2 = false;
             playerCount = 0;
 
-            doughDone = GetComponent<Pate>().doughDone;
-
             Debug.Log("La partie est lancée");
         }
 
 
         void Update()
         {
-            if (doughDone == true)
+            if (dough.doughDone == true)
             {
                 if (Input.GetKeyDown(KeyCode.E) && p2 == false && tomatoDone == false)
                 {
