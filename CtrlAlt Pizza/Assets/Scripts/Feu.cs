@@ -17,6 +17,9 @@ namespace minigame
         public Olive olive;
         public Oeuf egg;
 
+        public LeaderBoardObject leaderbordScript;
+
+
         public GameObject globalTimer;
         public float finalTime;
 
@@ -53,6 +56,9 @@ namespace minigame
 
                     finalTime = globalTimer.GetComponent<Timer>().timer;
                     Debug.Log(finalTime);
+
+                    leaderbordScript.LeaderBoardUpdate();
+
                 }
             }
         }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1225626670342205319}
   m_Layer: 0
   m_Name: Feu
-  m_TagString: Untagged
+  m_TagString: feu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,11 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146fbd0479958fd46933c1c97f88469d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feu: 0
+  fireDone: 0
   dough: {fileID: 0}
   tomato: {fileID: 0}
   cheese: {fileID: 0}
   chorizo: {fileID: 0}
   olive: {fileID: 0}
   egg: {fileID: 0}
+  leaderbordScript: {fileID: 0}
   globalTimer: {fileID: 0}
+  finalTime: 0

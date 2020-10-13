@@ -26,28 +26,33 @@ namespace minigame
         {
             if (fire.fireDone == true && saved == false)
             {
-                time = fire.GetComponent<Feu>().finalTime;
-
-                int minutes = Mathf.FloorToInt(time / 60F);
-                int seconds = Mathf.FloorToInt(time % 60F);
-                int milliseconds = Mathf.FloorToInt((time * 100F) % 100F);
-
-                string scoreMin = minutes.ToString();
-                string scoreSec = seconds.ToString();
-                string scoreMilli = milliseconds.ToString();
-
-                scoreTotal = scoreMin + ":" + scoreSec + ":" + scoreMilli;
-                Debug.Log(scoreTotal);
-
-                listScores.Add(scoreTotal);
-                Debug.Log(listScores[0] + "b");
-                listScores.Sort();
-                listScores.RemoveAt(10);
-
-                affichage.text = listScores[0].ToString() + "\n" + listScores[1].ToString() + "\n" + listScores[2].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[4].ToString() + "\n" + listScores[5].ToString() + "\n" + listScores[6].ToString() + "\n" + listScores[7].ToString() + "\n" + listScores[8].ToString() + "\n" + listScores[9].ToString() + "\n";
-
-                saved = true;
+                LeaderboardUpdate();
             }
+        }
+
+        void LeaderboardUpdate()
+        {
+            time = fire.GetComponent<Feu>().finalTime;
+
+            int minutes = Mathf.FloorToInt(time / 60F);
+            int seconds = Mathf.FloorToInt(time % 60F);
+            int milliseconds = Mathf.FloorToInt((time * 100F) % 100F);
+
+            string scoreMin = minutes.ToString();
+            string scoreSec = seconds.ToString();
+            string scoreMilli = milliseconds.ToString();
+
+            scoreTotal = scoreMin + ":" + scoreSec + ":" + scoreMilli;
+            Debug.Log(scoreTotal);
+
+            listScores.Add(scoreTotal);
+            Debug.Log(listScores[0] + "b");
+            listScores.Sort();
+            listScores.RemoveAt(10);
+
+            affichage.text = listScores[0].ToString() + "\n" + listScores[1].ToString() + "\n" + listScores[2].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[4].ToString() + "\n" + listScores[5].ToString() + "\n" + listScores[6].ToString() + "\n" + listScores[7].ToString() + "\n" + listScores[8].ToString() + "\n" + listScores[9].ToString() + "\n";
+
+            saved = true;
         }
     }
 }
