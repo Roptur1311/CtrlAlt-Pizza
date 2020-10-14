@@ -46,7 +46,7 @@ namespace minigame
                 Debug.Log("backCounter : " + backCounter);
             }
 
-            if (forwardCounter == 10 && backCounter == 10 && doughDone == false)/*valeur provisoire*/
+            if (forwardCounter >= 10 && backCounter >= 10 && doughDone == false)/*valeur provisoire*/
             {
                 Debug.Log("Pâte étalée");
                 doughDone = true;

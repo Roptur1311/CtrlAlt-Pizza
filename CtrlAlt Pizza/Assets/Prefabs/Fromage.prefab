@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26f52e29e4186e4888f9e68e7c7db46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dough: {fileID: 0}
-  tomato: {fileID: 0}
+  dough: {fileID: 1721930774839885528, guid: df4a7420cfd0fd046a52b1cf426e868c, type: 3}
+  tomato: {fileID: 5603795939304004951, guid: d5dd716e5ad2e9f4f86aad02e02a237a, type: 3}
   cheeseDone: 0

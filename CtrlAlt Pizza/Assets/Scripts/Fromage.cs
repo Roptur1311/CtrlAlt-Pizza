@@ -51,7 +51,7 @@ namespace minigame
                     Debug.Log("bottomCounter : " + bottomCounter);
                 }
 
-                if (topCounter == 10 && bottomCounter == 10 && cheeseDone == false)/*valeur provisoire*/
+                if (topCounter >= 10 && bottomCounter >= 10 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Debug.Log("Fromage ajouté");
                     cheeseDone = true;

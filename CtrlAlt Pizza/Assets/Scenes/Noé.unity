@@ -789,6 +789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Feu
       objectReference: {fileID: 0}
+    - target: {fileID: 1225626670342205313, guid: 05767f269c2052348963c96af120d5b8, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1225626670342205319, guid: 05767f269c2052348963c96af120d5b8, type: 3}
       propertyPath: globalTimer
       value: 
@@ -1218,6 +1222,10 @@ PrefabInstance:
     - target: {fileID: 7153548045545490952, guid: 67d3454e4f755b140ad629d482d865b7, type: 3}
       propertyPath: m_Name
       value: affichage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153548045545490952, guid: 67d3454e4f755b140ad629d482d865b7, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7153548045545490953, guid: 67d3454e4f755b140ad629d482d865b7, type: 3}
       propertyPath: m_LocalPosition.x
