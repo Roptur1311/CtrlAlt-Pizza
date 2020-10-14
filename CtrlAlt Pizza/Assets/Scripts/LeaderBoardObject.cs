@@ -44,9 +44,9 @@ namespace minigame
                 int seconds = Mathf.FloorToInt(time % 60F);
                 int milliseconds = Mathf.FloorToInt((time * 100F) % 100F);
 
-                string scoreMin = minutes.ToString();
-                string scoreSec = seconds.ToString();
-                string scoreMilli = milliseconds.ToString();
+                string scoreMin = minutes.ToString("00");
+                string scoreSec = seconds.ToString("00");
+                string scoreMilli = milliseconds.ToString("00");
 
                 scoreTotal = scoreMin + ":" + scoreSec + ":" + scoreMilli + "   " + playerName;
                 Debug.Log(scoreTotal);
