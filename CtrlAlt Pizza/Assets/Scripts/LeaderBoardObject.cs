@@ -19,32 +19,42 @@ namespace minigame
         private GameObject affichage;
 
         [SerializeField]
+        private GameObject tempsPerso;
+
+        [SerializeField]
         private string scoreTotal;
 
         [SerializeField]
         private GameObject fire;
 
-        private void Awake()
-        {
-            fire = GameObject.FindGameObjectWithTag("feu");
-            affichage = GameObject.FindGameObjectWithTag("affichage");
-        }
+        [SerializeField]
+        private string playerName;
 
         public void LeaderBoardUpdate()
         {
-            //if(fire.fireDone == true)
-            //{
+            fire = GameObject.FindGameObjectWithTag("feu");
+            affichage = GameObject.FindGameObjectWithTag("affichage");
+            tempsPerso = GameObject.FindGameObjectWithTag("tempsPerso");
+
+            playerName = PlayerPrefs.GetString("Name");
+
+            Debug.Log(playerName);
+
+            if (fire.GetComponent<Feu>().fireDone == true)
+            {
                 time = fire.GetComponent<Feu>().finalTime;
                 
                 int minutes = Mathf.FloorToInt(time / 60F);
                 int seconds = Mathf.FloorToInt(time % 60F);
                 int milliseconds = Mathf.FloorToInt((time * 100F) % 100F);
 
-                string scoreMin = minutes.ToString();
-                string scoreSec = seconds.ToString();
-                string scoreMilli = milliseconds.ToString();
+                string scoreMin = minutes.ToString("00");
+                string scoreSec = seconds.ToString("00");
+                string scoreMilli = milliseconds.ToString("00");
 
-                scoreTotal = scoreMin + ":" + scoreSec + ":" + scoreMilli;
+                tempsPerso.GetComponent<Text>().text = scoreMin + ":" + scoreSec + ":" + scoreMilli;
+
+                scoreTotal = scoreMin + ":" + scoreSec + ":" + scoreMilli + "   " + playerName;
                 Debug.Log(scoreTotal);
 
                 listScores.Add(scoreTotal);
@@ -54,7 +64,10 @@ namespace minigame
                 listScores.RemoveAt(10);
 
                 affichage.GetComponent<Text>().text = listScores[0].ToString() + "\n" + listScores[1].ToString() + "\n" + listScores[2].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[4].ToString() + "\n" + listScores[5].ToString() + "\n" + listScores[6].ToString() + "\n" + listScores[7].ToString() + "\n" + listScores[8].ToString() + "\n" + listScores[9].ToString() + "\n";
-            //}            
+
+                PlayerPrefs.DeleteAll();
+            }
+            
         }
     }
 }

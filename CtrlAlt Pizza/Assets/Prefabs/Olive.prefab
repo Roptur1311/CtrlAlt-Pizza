@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   olivePitted: 0
-  dough: {fileID: 0}
-  tomato: {fileID: 0}
-  cheese: {fileID: 0}
-  chorizo: {fileID: 0}
+  dough: {fileID: 1721930774839885528, guid: df4a7420cfd0fd046a52b1cf426e868c, type: 3}
+  tomato: {fileID: 5603795939304004951, guid: d5dd716e5ad2e9f4f86aad02e02a237a, type: 3}
+  cheese: {fileID: 7117232856269161179, guid: fcd1370e699b2f548aa0bef7662da3b3, type: 3}
+  chorizo: {fileID: 1954639840607093351, guid: 9cbebed5ce5cc814687171ff308569b3, type: 3}

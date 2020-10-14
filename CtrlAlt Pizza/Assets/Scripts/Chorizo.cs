@@ -51,7 +51,7 @@ namespace minigame
                     Debug.Log("rightCounter : " + rightCounter);
                 }
 
-                if (leftCounter == 10 && rightCounter == 10 && chorizoDone == false)/*valeur provisoire*/
+                if (leftCounter >= 10 && rightCounter >= 10 && chorizoDone == false)/*valeur provisoire*/
                 {
                     Debug.Log("Chorizo ajouté");
                     chorizoDone = true;
