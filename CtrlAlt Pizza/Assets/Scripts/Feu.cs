@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace minigame
 {
@@ -17,6 +18,8 @@ namespace minigame
         public Olive olive;
         public Oeuf egg;
 
+        public GameObject RestartButton;
+
         public LeaderBoardObject leaderbordScript;
 
 
@@ -28,6 +31,8 @@ namespace minigame
             fireDone = false;
             allumette = false;
             bois = false;
+
+            RestartButton.SetActive(false);
             
         }
 
@@ -57,10 +62,17 @@ namespace minigame
                     finalTime = globalTimer.GetComponent<Timer>().timer;
                     Debug.Log(finalTime);
 
+                    RestartButton.SetActive(true);
+
                     leaderbordScript.LeaderBoardUpdate();
 
                 }
             }
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene("StartScene");
         }
     }
 }
