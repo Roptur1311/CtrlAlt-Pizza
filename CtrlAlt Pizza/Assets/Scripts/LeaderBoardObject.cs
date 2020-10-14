@@ -19,6 +19,9 @@ namespace minigame
         private GameObject affichage;
 
         [SerializeField]
+        private GameObject tempsPerso;
+
+        [SerializeField]
         private string scoreTotal;
 
         [SerializeField]
@@ -31,6 +34,7 @@ namespace minigame
         {
             fire = GameObject.FindGameObjectWithTag("feu");
             affichage = GameObject.FindGameObjectWithTag("affichage");
+            tempsPerso = GameObject.FindGameObjectWithTag("tempsPerso");
 
             playerName = PlayerPrefs.GetString("Name");
 
@@ -47,6 +51,8 @@ namespace minigame
                 string scoreMin = minutes.ToString("00");
                 string scoreSec = seconds.ToString("00");
                 string scoreMilli = milliseconds.ToString("00");
+
+                tempsPerso.GetComponent<Text>().text = scoreMin + ":" + scoreSec + ":" + scoreMilli;
 
                 scoreTotal = scoreMin + ":" + scoreSec + ":" + scoreMilli + "   " + playerName;
                 Debug.Log(scoreTotal);

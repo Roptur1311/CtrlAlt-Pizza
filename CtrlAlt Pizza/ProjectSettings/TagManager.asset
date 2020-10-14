@@ -6,6 +6,7 @@ TagManager:
   tags:
   - feu
   - affichage
+  - tempsPerso
   layers:
   - Default
   - TransparentFX

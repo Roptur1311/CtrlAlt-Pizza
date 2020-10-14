@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: Leaderboard
   m_EditorClassIdentifier: 
   listScores:
-  - 00:45:00
-  - 00:49:59
-  - 01:25:36
-  - 01:23:04
-  - 02:23:66
-  - 01:24:17
-  - 01:25:56
-  - 01:27:72
-  - 01:29:19
-  - 01:36:21
-  time: 27.72936
+  - 01:22:94   Fabien
+  - 02:45:00  Michel
+  - 00:49:59  Marie
+  - 01:23:04  Pierre
+  - 01:24:17  Ludovic
+  - 01:25:36  Sylvie
+  - 01:25:56  Sophie
+  - 01:27:72  Robert
+  - 01:29:19  Louise
+  - "01:36:21  K\xE9vin"
+  time: 22.947653
   affichage: {fileID: 0}
-  scoreTotal: 0:27:72Bob
+  tempsPerso: {fileID: 0}
+  scoreTotal: 00:22:94   Fabien
   fire: {fileID: 0}
-  playerName: Bob
+  playerName: Fabien
