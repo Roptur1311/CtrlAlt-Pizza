@@ -23,6 +23,33 @@ namespace minigame
         public Chorizo chorizo;
         public Olive olive;
 
+        public GameObject LastOlive;
+        public GameObject OeufAnim1;
+        public GameObject OeufAnim2;
+        public GameObject OeufAnim3;
+        public GameObject OeufAnim4;
+        public GameObject OeufAnim5;
+        public GameObject OeufAnim6;
+        public GameObject OeufAnim7;
+        public GameObject OeufAnim8;
+        public GameObject OeufAnim9;
+        public GameObject OeufAnim10;
+
+
+        void Start()
+        {
+            OeufAnim1.SetActive(false);
+            OeufAnim2.SetActive(false);
+            OeufAnim3.SetActive(false);
+            OeufAnim4.SetActive(false);
+            OeufAnim5.SetActive(false);
+            OeufAnim6.SetActive(false);
+            OeufAnim7.SetActive(false);
+            OeufAnim8.SetActive(false);
+            OeufAnim9.SetActive(false);
+            OeufAnim10.SetActive(false);
+            
+        }
         void Update()
         {
             if (dough.doughDone == true && tomato.tomatoDone == true && cheese.cheeseDone == true && chorizo.chorizoDone == true && olive.olivePitted == true)
@@ -58,8 +85,65 @@ namespace minigame
                     Debug.Log(secondTimer);
                 }*/
 
+                if (hitCount == 1)
+                {
+                    LastOlive.SetActive(false);
+                    OeufAnim1.SetActive(true);
+                }
+
+                if (hitCount == 2)
+                {
+                    OeufAnim1.SetActive(false);
+                    OeufAnim2.SetActive(true);
+                }
+
+                if (hitCount == 3)
+                {
+                    OeufAnim2.SetActive(false);
+                    OeufAnim3.SetActive(true);
+                }
+
+                if (hitCount == 4)
+                {
+                    OeufAnim3.SetActive(false);
+                    OeufAnim4.SetActive(true);
+                }
+
+                if (hitCount == 5)
+                {
+                    OeufAnim4.SetActive(false);
+                    OeufAnim5.SetActive(true);
+                }
+
+                if (hitCount == 6)
+                {
+                    OeufAnim5.SetActive(false);
+                    OeufAnim6.SetActive(true);
+                }
+
+                if (hitCount == 7)
+                {
+                    OeufAnim6.SetActive(false);
+                    OeufAnim7.SetActive(true);
+                }
+
+                if (hitCount == 8)
+                {
+                    OeufAnim7.SetActive(false);
+                    OeufAnim8.SetActive(true);
+                }
+
+                if (hitCount == 9)
+                {
+                    OeufAnim8.SetActive(false);
+                    OeufAnim9.SetActive(true);
+                }
+
                 if (hitCount == 10)
                 {
+                    OeufAnim9.SetActive(false);
+                    OeufAnim10.SetActive(true);
+
                     eggIsCracked = true;
                     Debug.Log("Egg cracked");
                     hitCount = 0;
