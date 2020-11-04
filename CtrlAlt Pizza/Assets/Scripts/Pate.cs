@@ -10,6 +10,8 @@ namespace minigame
         private int forwardCounter;
         private bool back;
         private int backCounter;
+        public AudioSource pateSound;
+        public AudioSource winSound;
 
         public bool doughDone;
 
@@ -34,6 +36,7 @@ namespace minigame
                 forwardCounter = forwardCounter + 1;
 
                 Debug.Log("forwardCounter : " + forwardCounter);
+                pateSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.Z) && forward == true && doughDone == false)
@@ -44,12 +47,14 @@ namespace minigame
                 backCounter = backCounter + 1;
 
                 Debug.Log("backCounter : " + backCounter);
+                pateSound.Play();
             }
 
             if (forwardCounter >= 10 && backCounter >= 10 && doughDone == false)/*valeur provisoire*/
             {
                 Debug.Log("Pâte étalée");
                 doughDone = true;
+                winSound.Play();
             }
         }
     }

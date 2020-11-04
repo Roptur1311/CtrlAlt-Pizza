@@ -7,10 +7,12 @@ public class Timer : MonoBehaviour
 {
     public float timer;
     public Text timerText;
+    public AudioSource timerStartSound;
 
     void Start()
     {
         timer = 0.0f;
+        timerStartSound.Play();
     }
 
     void Update()

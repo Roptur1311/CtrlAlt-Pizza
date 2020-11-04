@@ -7,7 +7,7 @@ public class ButtonsList : MonoBehaviour
     //Pâte -> A  et Z (Noé)
     //Tomate -> E et R (Samuel)
     //Fromage -> T et Y (Noé)
-    //Chorizon -> U et I (Noé)
+    //Chorizo -> U et I (Noé)
     //Olive ->  O (Adel)
     //Oeuf -> P et Q (Adel)
     //Feu -> S et D (Samuel)

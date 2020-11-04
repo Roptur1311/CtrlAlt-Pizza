@@ -13,6 +13,9 @@ namespace minigame
         private int bottomCounter;
         public Pate dough;
         public Tomate tomato;
+        public AudioSource cheeseSoundUp;
+        public AudioSource cheeseSoundDown;
+        public AudioSource cheeseSoundDone;
 
         public bool cheeseDone;
 
@@ -39,6 +42,7 @@ namespace minigame
                     topCounter = topCounter + 1;
 
                     Debug.Log("topCounter : " + topCounter);
+                    cheeseSoundUp.Play();
                 }
 
                 if (Input.GetKeyDown(KeyCode.Y) && top == true && cheeseDone == false)
@@ -49,12 +53,14 @@ namespace minigame
                     bottomCounter = bottomCounter + 1;
 
                     Debug.Log("bottomCounter : " + bottomCounter);
+                    cheeseSoundDown.Play();
                 }
 
                 if (topCounter >= 10 && bottomCounter >= 10 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Debug.Log("Fromage ajouté");
                     cheeseDone = true;
+                    cheeseSoundDone.Play();
                 }
             }
         }

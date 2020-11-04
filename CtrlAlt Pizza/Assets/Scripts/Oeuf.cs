@@ -22,6 +22,9 @@ namespace minigame
         public Fromage cheese;
         public Chorizo chorizo;
         public Olive olive;
+        public AudioSource eggHitSound;
+        public AudioSource eggSyncSound;
+        public AudioSource eggCrackSound;
 
         void Update()
         {
@@ -63,6 +66,7 @@ namespace minigame
                     eggIsCracked = true;
                     Debug.Log("Egg cracked");
                     hitCount = 0;
+                    eggCrackSound.Play();
                 }
             }
         }
@@ -75,6 +79,7 @@ namespace minigame
                 Debug.Log("First button hit");
                 firstButtonHit = true;
                 hitCount += 1;
+                eggHitSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && firstButtonHit)
@@ -83,6 +88,7 @@ namespace minigame
                 Debug.Log("Second button hit");
                 hitCount += 1;
                 rhythmIsDecided = true;
+                eggHitSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && !firstButtonHit && !secondButtonHit)
@@ -90,6 +96,7 @@ namespace minigame
                 Debug.Log("Second button hit");
                 secondButtonHit = true;
                 hitCount += 1;
+                eggHitSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.P) && secondButtonHit)
@@ -98,6 +105,7 @@ namespace minigame
                 Debug.Log("First button hit");
                 hitCount += 1;
                 rhythmIsDecided = true;
+                eggHitSound.Play();
             }
 
             yield return null;
@@ -109,6 +117,7 @@ namespace minigame
             if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Q) && !goToSecondTimer)
             {
                 goToSecondTimer = true;
+                eggSyncSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.P) && firstButtonHit && !secondButtonHit && (secondTimer > (hitTimeGap - marginError) && secondTimer < (hitTimeGap + marginError)))
@@ -118,6 +127,8 @@ namespace minigame
                 secondButtonHit = true;
                 secondTimer = 0;
                 hitCount += 1;
+                eggHitSound.Play();
+                eggSyncSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.P) && firstButtonHit && !secondButtonHit && (secondTimer > (hitTimeGap + marginError) || secondTimer < (hitTimeGap - marginError)))
@@ -126,6 +137,7 @@ namespace minigame
                 firstButtonHit = false;
                 secondButtonHit = true;
                 secondTimer = 0;
+                eggHitSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && secondButtonHit && !firstButtonHit && (secondTimer > (hitTimeGap - marginError) && secondTimer < (hitTimeGap + marginError)))
@@ -135,6 +147,8 @@ namespace minigame
                 secondButtonHit = false;
                 secondTimer = 0;
                 hitCount += 1;
+                eggHitSound.Play();
+                eggSyncSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && secondButtonHit && !firstButtonHit && (secondTimer > (hitTimeGap + marginError) || secondTimer < (hitTimeGap - marginError)))
@@ -143,6 +157,7 @@ namespace minigame
                 firstButtonHit = true;
                 secondButtonHit = false;
                 secondTimer = 0;
+                eggHitSound.Play();
             }
 
             yield return null;
