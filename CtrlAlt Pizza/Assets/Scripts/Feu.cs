@@ -25,6 +25,8 @@ namespace minigame
 
         public GameObject globalTimer;
         public float finalTime;
+        public AudioSource matchSound;
+        public AudioSource fireSound;
 
         void Start()
         {
@@ -52,12 +54,14 @@ namespace minigame
                     allumette = true;
 
                     Debug.Log(" Allumette allumée");
+                    matchSound.Play();
                 }
 
                 if (allumette == true && bois == true && fireDone == false)
                 {
                     fireDone = true;
                     Debug.Log("Le feu est allumé");
+                    fireSound.Play();
 
                     finalTime = globalTimer.GetComponent<Timer>().timer;
                     Debug.Log(finalTime);

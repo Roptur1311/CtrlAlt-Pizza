@@ -13,6 +13,9 @@ namespace minigame
         public Pate dough;
         public Tomate tomato;
         public Fromage cheese;
+        public AudioSource chorizoLeftSound;
+        public AudioSource chorizoRightSound;
+        public AudioSource chorizoDoneSound;
 
         public GameObject FromageAnim;
         public GameObject Chorizo1;
@@ -63,6 +66,7 @@ namespace minigame
                     leftCounter = leftCounter + 1;
 
                     Debug.Log("leftCounter : " + leftCounter);
+                    chorizoLeftSound.Play();
                 }
 
                 if (Input.GetKeyDown(KeyCode.I) && left == true && chorizoDone == false)
@@ -73,6 +77,7 @@ namespace minigame
                     rightCounter = rightCounter + 1;
 
                     Debug.Log("rightCounter : " + rightCounter);
+                    chorizoRightSound.Play();
                 }
 
                 if (leftCounter >= 1 && rightCounter >= 1 && chorizoDone == false)/*valeur provisoire*/
@@ -136,6 +141,7 @@ namespace minigame
 
                     Debug.Log("Chorizo ajouté");
                     chorizoDone = true;
+                    chorizoDoneSound.Play();
                 }
             }
         }

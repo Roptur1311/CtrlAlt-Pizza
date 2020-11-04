@@ -12,6 +12,8 @@ namespace minigame
         public Tomate tomato;
         public Fromage cheese;
         public Chorizo chorizo;
+        public AudioSource oliveTouchSound;
+        public AudioSource olivePitSound;
 
         public GameObject ChorizoAnim;
         public GameObject Olive1;
@@ -46,6 +48,7 @@ namespace minigame
                 {
                     Debug.Log("Olive touchée");
                     hitCount += 1;
+                    oliveTouchSound.Play();
                 }
 
                 if (hitCount == 1 && !olivePitted)
@@ -110,6 +113,7 @@ namespace minigame
                     Debug.Log("L'olive est dénoyautée");
                     hitCount = 0;
                     olivePitted = true;
+                    olivePitSound.Play();
                 }
             }
         }

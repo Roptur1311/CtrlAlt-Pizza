@@ -11,6 +11,8 @@ namespace minigame
         private int forwardCounter;
         private bool back;
         private int backCounter;
+        public AudioSource pateSound;
+        public AudioSource winSound;
 
         public GameObject Pate1;
         public GameObject Pate2;
@@ -56,6 +58,7 @@ namespace minigame
                 forwardCounter = forwardCounter + 1;
 
                 Debug.Log("forwardCounter : " + forwardCounter);
+                pateSound.Play();
             }
 
             if (Input.GetKeyDown(KeyCode.Z) && forward == true && doughDone == false)
@@ -66,6 +69,7 @@ namespace minigame
                 backCounter = backCounter + 1;
 
                 Debug.Log("backCounter : " + backCounter);
+                pateSound.Play();
             }
 
 
@@ -129,6 +133,7 @@ namespace minigame
                 Pate9.SetActive(false);
                 Pate10.SetActive(true);
                 doughDone = true;
+                winSound.Play();
             }
         }
     }
