@@ -12,10 +12,10 @@ namespace minigame
         public bool tomatoDone;
         private int playerCount;
         public Pate dough;
-        public AudioSource tomatoSound1;
-        public AudioSource tomatoSound2;
-        public AudioSource tomatoSoundSync;
-        public AudioSource tomatoSoundDone;
+        public AudioSource tomato1Sound;
+        public AudioSource tomato2Sound;
+        public AudioSource tomatoSyncSound;
+        public AudioSource tomatoDoneSound;
 
         public GameObject Pate10;
         public GameObject Tomate1;
@@ -62,13 +62,13 @@ namespace minigame
                     p1 = true;
 
                     //Debug.Log("E pressed");
-                    tomatoSound1.Play();
+                    tomato1Sound.Play();
                 }
                 if (timer <= 1.5f && Input.GetKeyDown(KeyCode.R) && p1 == true && p2 == false && tomatoDone == false)
                 {
                     //Debug.Log(timer);
                     //Debug.Log("R pressed 2");
-                    tomatoSound2.Play();
+                    tomato2Sound.Play();
 
                     p2 = true;
 
@@ -113,7 +113,7 @@ namespace minigame
                     Debug.Log("+1 Tomate");
                     p1 = false;
                     p2 = false;
-                    tomatoSoundSync.Play();
+                    tomatoSyncSound.Play();
                 }
 
 
@@ -178,7 +178,7 @@ namespace minigame
 
                     Debug.Log("Bien joué, ce sont de belles tomates");
                     tomatoDone = true;
-                    tomatoSoundDone.Play();
+                    tomatoDoneSound.Play();
                 }
             }
         }

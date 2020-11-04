@@ -27,9 +27,9 @@ namespace minigame
         public GameObject Fromage9;
         public GameObject Fromage10;
         
-        public AudioSource cheeseSoundUp;
-        public AudioSource cheeseSoundDown;
-        public AudioSource cheeseSoundDone;
+        public AudioSource cheeseUpSound;
+        public AudioSource cheeseDownSound;
+        public AudioSource cheeseDoneSound;
 
         public bool cheeseDone;
 
@@ -67,7 +67,7 @@ namespace minigame
                     topCounter = topCounter + 1;
 
                     Debug.Log("topCounter : " + topCounter);
-                    cheeseSoundUp.Play();
+                    cheeseUpSound.Play();
                 }
 
                 if (Input.GetKeyDown(KeyCode.Y) && top == true && cheeseDone == false)
@@ -78,7 +78,7 @@ namespace minigame
                     bottomCounter = bottomCounter + 1;
 
                     Debug.Log("bottomCounter : " + bottomCounter);
-                    cheeseSoundDown.Play();
+                    cheeseDownSound.Play();
                 }
 
                 if (topCounter >= 1 && bottomCounter >= 1 && cheeseDone == false)/*valeur provisoire*/
@@ -143,7 +143,7 @@ namespace minigame
                     Fromage10.SetActive(true);
                     Debug.Log("Fromage ajouté");
                     cheeseDone = true;
-                    cheeseSoundDone.Play();
+                    cheeseDoneSound.Play();
                 }
             }
         }

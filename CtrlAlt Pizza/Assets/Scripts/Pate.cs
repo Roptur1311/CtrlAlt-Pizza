@@ -12,7 +12,7 @@ namespace minigame
         private bool back;
         private int backCounter;
         public AudioSource pateSound;
-        public AudioSource winSound;
+        public AudioSource pateDoneSound;
 
         public GameObject Pate1;
         public GameObject Pate2;
@@ -133,7 +133,7 @@ namespace minigame
                 Pate9.SetActive(false);
                 Pate10.SetActive(true);
                 doughDone = true;
-                winSound.Play();
+                pateDoneSound.Play();
             }
         }
     }
