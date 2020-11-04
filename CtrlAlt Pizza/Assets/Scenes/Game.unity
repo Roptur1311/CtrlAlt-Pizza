@@ -3930,7 +3930,7 @@ GameObject:
   - component: {fileID: 1559976930}
   - component: {fileID: 1559976929}
   m_Layer: 5
-  m_Name: leaderboard
+  m_Name: Leaderboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
