@@ -20,6 +20,8 @@ namespace minigame
 
         public GameObject RestartButton;
 
+        public GameObject Fire;
+
         public LeaderBoardObject leaderbordScript;
 
 
@@ -33,6 +35,8 @@ namespace minigame
             fireDone = false;
             allumette = false;
             bois = false;
+
+            Fire.SetActive(false);
 
             RestartButton.SetActive(false);
             
@@ -62,6 +66,8 @@ namespace minigame
                     fireDone = true;
                     Debug.Log("Le feu est allumé");
                     fireSound.Play();
+
+                    Fire.SetActive(true);
 
                     finalTime = globalTimer.GetComponent<Timer>().timer;
                     Debug.Log(finalTime);
