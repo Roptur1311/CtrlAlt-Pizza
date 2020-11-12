@@ -12,6 +12,7 @@ namespace minigame
         private float time;
         public Text affichage;
         private string scoreTotal;
+        public GameObject tableau;
 
         private bool saved;
 
@@ -19,6 +20,7 @@ namespace minigame
         {
             saved = false;
             listScores = new List<string>() { "00:50:00", "00:55:42", "00:58:36", "00:52:00", "01:05:00", "01:03:52", "01:12:00", "01:30:14", "01:10:00", "02:00:00" };
+            tableau.SetActive(false);
 
         }
         
@@ -49,6 +51,8 @@ namespace minigame
             Debug.Log(listScores[0] + "b");
             listScores.Sort();
             listScores.RemoveAt(10);
+
+            tableau.SetActive(true);
 
             affichage.text = listScores[0].ToString() + "\n" + listScores[1].ToString() + "\n" + listScores[2].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[4].ToString() + "\n" + listScores[5].ToString() + "\n" + listScores[6].ToString() + "\n" + listScores[7].ToString() + "\n" + listScores[8].ToString() + "\n" + listScores[9].ToString() + "\n";
 

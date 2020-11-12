@@ -24,11 +24,15 @@ namespace minigame
 
         public LeaderBoardObject leaderbordScript;
 
+        public GameObject tableau;
+
 
         public GameObject globalTimer;
         public float finalTime;
         public AudioSource matchSound;
         public AudioSource fireSound;
+
+        public GameObject timer;
 
         void Start()
         {
@@ -37,6 +41,8 @@ namespace minigame
             bois = false;
 
             Fire.SetActive(false);
+
+            tableau.SetActive(false);
 
             RestartButton.SetActive(false);
             
@@ -74,6 +80,10 @@ namespace minigame
 
                     RestartButton.SetActive(true);
 
+                    tableau.SetActive(true);
+
+                    timer.SetActive(false);
+
                     leaderbordScript.LeaderBoardUpdate();
 
                 }
@@ -82,6 +92,17 @@ namespace minigame
 
         public void RestartGame()
         {
+            dough.doughDone = false;
+            tomato.tomatoDone = false;
+            cheese.cheeseDone = false;
+            chorizo.chorizoDone = false;
+            olive.olivePitted = false;
+            egg.eggIsCracked = false;
+            fireDone = false;
+
+            allumette = false;
+            bois = false;
+
             SceneManager.LoadScene("StartScene");
         }
     }
