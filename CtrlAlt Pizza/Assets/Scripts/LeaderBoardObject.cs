@@ -63,9 +63,9 @@ namespace minigame
                 
                 listScores.RemoveAt(10);
 
-                affichage.GetComponent<Text>().text = listScores[0].ToString() + "\n" + listScores[1].ToString() + "\n" + listScores[2].ToString() + "\n" + listScores[3].ToString() + "\n" + listScores[4].ToString() + "\n" + listScores[5].ToString() + "\n" + listScores[6].ToString() + "\n" + listScores[7].ToString() + "\n" + listScores[8].ToString() + "\n" + listScores[9].ToString() + "\n";
+                affichage.GetComponent<Text>().text = listScores[0].ToString() + "\n" + "\n" + listScores[1].ToString() + "\n" + "\n" + listScores[2].ToString() + "\n" + "\n" + listScores[3].ToString() + "\n" + "\n" + listScores[4].ToString() + "\n" + "\n" + listScores[5].ToString() + "\n" + "\n" + listScores[6].ToString() + "\n" + "\n" + listScores[7].ToString() + "\n" + "\n" + listScores[8].ToString() + "\n" + "\n" + listScores[9].ToString() + "\n";
 
-                PlayerPrefs.DeleteAll();
+                
             }
             
         }

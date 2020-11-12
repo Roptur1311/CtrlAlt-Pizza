@@ -20,7 +20,11 @@ namespace minigame
 
         public GameObject RestartButton;
 
+        public GameObject Fire;
+
         public LeaderBoardObject leaderbordScript;
+
+        public GameObject tableau;
 
 
         public GameObject globalTimer;
@@ -28,11 +32,17 @@ namespace minigame
         public AudioSource matchSound;
         public AudioSource fireSound;
 
+        public GameObject timer;
+
         void Start()
         {
             fireDone = false;
             allumette = false;
             bois = false;
+
+            Fire.SetActive(false);
+
+            tableau.SetActive(false);
 
             RestartButton.SetActive(false);
             
@@ -63,10 +73,16 @@ namespace minigame
                     Debug.Log("Le feu est allumé");
                     fireSound.Play();
 
+                    Fire.SetActive(true);
+
                     finalTime = globalTimer.GetComponent<Timer>().timer;
                     Debug.Log(finalTime);
 
                     RestartButton.SetActive(true);
+
+                    tableau.SetActive(true);
+
+                    timer.SetActive(false);
 
                     leaderbordScript.LeaderBoardUpdate();
 
@@ -76,6 +92,17 @@ namespace minigame
 
         public void RestartGame()
         {
+            dough.doughDone = false;
+            tomato.tomatoDone = false;
+            cheese.cheeseDone = false;
+            chorizo.chorizoDone = false;
+            olive.olivePitted = false;
+            egg.eggIsCracked = false;
+            fireDone = false;
+
+            allumette = false;
+            bois = false;
+
             SceneManager.LoadScene("StartScene");
         }
     }
