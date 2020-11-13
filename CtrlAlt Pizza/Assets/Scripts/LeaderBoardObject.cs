@@ -30,6 +30,13 @@ namespace minigame
         [SerializeField]
         private string playerName;
 
+        private void Awake()
+        {
+             
+        }
+
+    
+
         public void LeaderBoardUpdate()
         {
             fire = GameObject.FindGameObjectWithTag("feu");
@@ -37,6 +44,23 @@ namespace minigame
             tempsPerso = GameObject.FindGameObjectWithTag("tempsPerso");
 
             playerName = PlayerPrefs.GetString("Name");
+
+            if (PlayerPrefs.HasKey("Highscores") == false)
+            {
+                listScores = new List<string>() { "00:50:00", "00:55:42", "00:58:36", "00:52:00", "01:05:00", "01:03:52", "01:12:00", "01:30:14", "01:10:00", "02:00:00" };
+                for (int h = 0; h < listScores.Count; h++)
+                {
+                    PlayerPrefs.SetString("Highscores" + h, listScores[h]);
+                }
+
+                PlayerPrefs.Save();
+                Debug.Log("saved");
+            }
+
+            for (int i = 0 ;  i < listScores.Count ; i++)
+            {
+                listScores[i] = PlayerPrefs.GetString("Highscores" + i);
+            }
 
             Debug.Log(playerName);
 
@@ -65,7 +89,12 @@ namespace minigame
 
                 affichage.GetComponent<Text>().text = listScores[0].ToString() + "\n" + "\n" + listScores[1].ToString() + "\n" + "\n" + listScores[2].ToString() + "\n" + "\n" + listScores[3].ToString() + "\n" + "\n" + listScores[4].ToString() + "\n" + "\n" + listScores[5].ToString() + "\n" + "\n" + listScores[6].ToString() + "\n" + "\n" + listScores[7].ToString() + "\n" + "\n" + listScores[8].ToString() + "\n" + "\n" + listScores[9].ToString() + "\n";
 
-                
+                for (int j = 0; j < listScores.Count; j++)
+                {
+                    PlayerPrefs.SetString("Highscores" + j, listScores[j]);
+                }
+
+                PlayerPrefs.Save();
             }
             
         }

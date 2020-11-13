@@ -9274,6 +9274,7 @@ MonoBehaviour:
   egg: {fileID: 7979826468318517828}
   RestartButton: {fileID: 1335509334}
   Fire: {fileID: 338988662}
+  OeufAnim10: {fileID: 539728427}
   leaderbordScript: {fileID: 11400000, guid: 7e54b07c5f8cb914481c12f044177f4f, type: 2}
   tableau: {fileID: 285600502}
   globalTimer: {fileID: 7066708099214532514}
