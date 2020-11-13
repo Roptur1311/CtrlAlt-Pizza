@@ -30,12 +30,7 @@ namespace minigame
         [SerializeField]
         private string playerName;
 
-        private void Awake()
-        {
-             
-        }
-
-    
+        
 
         public void LeaderBoardUpdate()
         {
