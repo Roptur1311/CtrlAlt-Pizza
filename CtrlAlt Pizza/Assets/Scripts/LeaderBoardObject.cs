@@ -42,12 +42,13 @@ namespace minigame
 
             if (PlayerPrefs.HasKey("Highscores") == false)
             {
-                listScores = new List<string>() { "00:50:00", "00:55:42", "00:58:36", "00:52:00", "01:05:00", "01:03:52", "01:12:00", "01:30:14", "01:10:00", "02:00:00" };
+                listScores = new List<string>() { "00:50:00 George", "00:55:42 Antoine", "00:58:36 Louise", "00:52:00 Tom", "01:05:00 Clara", "01:03:52 Lisa", "01:12:00 Aurélien", "01:30:14 Emma", "01:10:00 Kevin", "02:00:00 Steve" };
                 for (int h = 0; h < listScores.Count; h++)
-                {
+                {                   
                     PlayerPrefs.SetString("Highscores" + h, listScores[h]);
                 }
 
+                PlayerPrefs.SetString("Highscores", "0");
                 PlayerPrefs.Save();
                 Debug.Log("saved");
             }
