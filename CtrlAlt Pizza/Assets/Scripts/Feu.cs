@@ -21,6 +21,7 @@ namespace minigame
         public GameObject RestartButton;
 
         public GameObject Fire;
+        public GameObject OeufAnim10;
 
         public LeaderBoardObject leaderbordScript;
 
@@ -73,6 +74,7 @@ namespace minigame
                     Debug.Log("Le feu est allumé");
                     fireSound.Play();
 
+                    OeufAnim10.SetActive(false);
                     Fire.SetActive(true);
 
                     finalTime = globalTimer.GetComponent<Timer>().timer;
