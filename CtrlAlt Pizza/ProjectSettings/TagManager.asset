@@ -8,6 +8,7 @@ TagManager:
   - affichage
   - tempsPerso
   - tableau
+  - egg
   layers:
   - Default
   - TransparentFX
