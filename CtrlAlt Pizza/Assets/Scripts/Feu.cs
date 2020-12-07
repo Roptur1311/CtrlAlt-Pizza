@@ -52,15 +52,8 @@ namespace minigame
         void Update()
         {
             if (dough.doughDone == true && tomato.tomatoDone == true && cheese.cheeseDone == true && chorizo.chorizoDone == true && olive.olivePitted == true && egg.eggIsCracked == true)
-            {
+            {                
                 if (Input.GetKeyDown(KeyCode.S) && fireDone == false)
-                {
-                    bois = true;
-
-                    Debug.Log(" Le bois est déposé");
-                }
-
-                if (Input.GetKeyDown(KeyCode.D) && fireDone == false)
                 {
                     allumette = true;
 
@@ -68,7 +61,7 @@ namespace minigame
                     matchSound.Play();
                 }
 
-                if (allumette == true && bois == true && fireDone == false)
+                if (allumette == true && fireDone == false)
                 {
                     fireDone = true;
                     Debug.Log("Le feu est allumé");
