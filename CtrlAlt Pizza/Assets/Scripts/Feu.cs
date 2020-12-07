@@ -9,7 +9,6 @@ namespace minigame
     {
         public bool fireDone;
         private bool allumette;
-        private bool bois;
 
         public Pate dough;
         public Tomate tomato;
@@ -39,7 +38,6 @@ namespace minigame
         {
             fireDone = false;
             allumette = false;
-            bois = false;
 
             Fire.SetActive(false);
 
@@ -96,7 +94,6 @@ namespace minigame
             fireDone = false;
 
             allumette = false;
-            bois = false;
 
             SceneManager.LoadScene("StartScene");
         }

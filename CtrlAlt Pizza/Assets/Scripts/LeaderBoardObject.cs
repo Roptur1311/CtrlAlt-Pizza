@@ -30,11 +30,15 @@ namespace minigame
         [SerializeField]
         private string playerName;
 
-        
+        /*[SerializeField]
+        private GameObject egg;*/
+
+
 
         public void LeaderBoardUpdate()
         {
             fire = GameObject.FindGameObjectWithTag("feu");
+            //egg = GameObject.FindGameObjectWithTag("egg");
             affichage = GameObject.FindGameObjectWithTag("affichage");
             tempsPerso = GameObject.FindGameObjectWithTag("tempsPerso");
 
@@ -60,9 +64,10 @@ namespace minigame
 
             Debug.Log(playerName);
 
-            if (fire.GetComponent<Feu>().fireDone == true)
+            if (fire.GetComponent<Feu>().fireDone == true /*egg.GetComponent<Oeuf>().eggcracked == true*/)
             {
                 time = fire.GetComponent<Feu>().finalTime;
+                //time = egg.GetComponent<Oeuf>().finalTime;
                 
                 int minutes = Mathf.FloorToInt(time / 60F);
                 int seconds = Mathf.FloorToInt(time % 60F);
