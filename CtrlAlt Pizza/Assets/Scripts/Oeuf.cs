@@ -13,10 +13,11 @@ namespace minigame
         private bool secondButtonHit;
         private bool goToSecondTimer;
         private int hitCount = 0;
+        private int failHitCount = 0;
         private float timer = 0.0f;
         private float secondTimer = 0.0f;
         private float hitTimeGap = 0.0f;
-        private float marginError = 0.5f;
+        private float marginError = 0.8f;
 
         public Pate dough;
         public Tomate tomato;
@@ -89,6 +90,13 @@ namespace minigame
                 if ((!firstButtonHit && secondButtonHit) || (firstButtonHit && !secondButtonHit))
                 {
                     timer += Time.deltaTime;
+                }
+
+                if (failHitCount == 3)
+                {
+                    failHitCount = 0;
+                    hitTimeGap = 0;
+                    rhythmIsDecided = false;
                 }
 
                 /*if (Input.GetKeyDown(KeyCode.T) && rhythmIsDecided)
@@ -250,6 +258,7 @@ namespace minigame
                 firstButtonHit = false;
                 secondButtonHit = true;
                 secondTimer = 0;
+                failHitCount++;
                 eggHitSound.Play();
             }
 
@@ -270,6 +279,7 @@ namespace minigame
                 firstButtonHit = true;
                 secondButtonHit = false;
                 secondTimer = 0;
+                failHitCount++;
                 eggHitSound.Play();
             }
 
