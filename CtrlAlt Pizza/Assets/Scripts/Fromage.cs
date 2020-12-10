@@ -8,10 +8,7 @@ namespace minigame
 {
     public class Fromage : MonoBehaviour
     {
-        private bool top;
-        private int topCounter;
-        private bool bottom;
-        private int bottomCounter;
+        private int counter;
         public Pate dough;
         public Tomate tomato;
 
@@ -35,12 +32,6 @@ namespace minigame
 
         void Start()
         {
-            top = true;
-            bottom = true;
-
-            topCounter = 0;
-            bottomCounter = 0;
-
             Fromage1.SetActive(false);
             Fromage2.SetActive(false);
             Fromage3.SetActive(false);
@@ -59,84 +50,79 @@ namespace minigame
         {
             if (dough.doughDone == true && tomato.tomatoDone == true)
             {
-                if (Input.GetKeyDown(KeyCode.T) && bottom == true && cheeseDone == false)
+                if (Input.GetKeyDown(KeyCode.T))
                 {
-                    top = true;
-                    bottom = false;
+                    counter = counter + 1;
 
-                    topCounter = topCounter + 1;
-
-                    Debug.Log("topCounter : " + topCounter);
-                    cheeseUpSound.Play();
+                    Debug.Log("counter : " + counter);
+                    
                 }
 
-                if (Input.GetKeyDown(KeyCode.Y) && top == true && cheeseDone == false)
-                {
-                    bottom = true;
-                    top = false;
-
-                    bottomCounter = bottomCounter + 1;
-
-                    Debug.Log("bottomCounter : " + bottomCounter);
-                    cheeseDownSound.Play();
-                }
-
-                if (topCounter >= 1 && bottomCounter >= 1 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 1 && cheeseDone == false)/*valeur provisoire*/
                 {
                     TomateAnim.SetActive(false);
                     Fromage1.SetActive(true);
+                    cheeseUpSound.Play();
                 }
 
-                if (topCounter >= 2 && bottomCounter >= 2 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 2 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Fromage1.SetActive(false);
                     Fromage2.SetActive(true);
+                    cheeseDownSound.Play();
                 }
 
-                if (topCounter >= 3 && bottomCounter >= 3 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 3 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Fromage2.SetActive(false);
                     Fromage3.SetActive(true);
+                    cheeseUpSound.Play();
                 }
 
-                if (topCounter >= 4 && bottomCounter >= 4 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 4 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Fromage3.SetActive(false);
                     Fromage4.SetActive(true);
+                    cheeseDownSound.Play();
                 }
 
-                if (topCounter >= 5 && bottomCounter >= 5 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 5 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Fromage4.SetActive(false);
                     Fromage5.SetActive(true);
+                    cheeseUpSound.Play();
                 }
 
-                if (topCounter >= 6 && bottomCounter >= 6 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 6 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Fromage5.SetActive(false);
                     Fromage6.SetActive(true);
+                    cheeseDownSound.Play();
                 }
 
-                if (topCounter >= 7 && bottomCounter >= 7 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 7 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Fromage6.SetActive(false);
                     Fromage7.SetActive(true);
+                    cheeseUpSound.Play();
                 }
 
-                if (topCounter >= 8 && bottomCounter >= 8 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 8 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Fromage7.SetActive(false);
                     Fromage8.SetActive(true);
+                    cheeseDownSound.Play();
                 }
 
-                if (topCounter >= 9 && bottomCounter >= 9 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 9 && cheeseDone == false)/*valeur provisoire*/
                 {
                     Fromage8.SetActive(false);
                     Fromage9.SetActive(true);
+                    cheeseUpSound.Play();
                 }
 
 
-                if (topCounter >= 10 && bottomCounter >= 10 && cheeseDone == false)/*valeur provisoire*/
+                if (counter == 10 && cheeseDone == false)/*valeur provisoire*/
                 {
 
                     Fromage9.SetActive(false);

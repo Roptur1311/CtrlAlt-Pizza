@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace minigame
 {
@@ -12,10 +13,11 @@ namespace minigame
         private bool secondButtonHit;
         private bool goToSecondTimer;
         private int hitCount = 0;
+        private int failHitCount = 0;
         private float timer = 0.0f;
         private float secondTimer = 0.0f;
         private float hitTimeGap = 0.0f;
-        private float marginError = 0.5f;
+        private float marginError = 0.8f;
 
         public Pate dough;
         public Tomate tomato;
@@ -38,6 +40,19 @@ namespace minigame
         public GameObject OeufAnim9;
         public GameObject OeufAnim10;
 
+        /*public LeaderBoardObject leaderbordScript;
+
+        public GameObject tableau;
+
+
+        public GameObject globalTimer;
+        public float finalTime;
+        public AudioSource matchSound;
+        public AudioSource fireSound;
+
+        public GameObject timer;
+        public GameObject RestartButton;*/
+
 
         void Start()
         {
@@ -51,6 +66,10 @@ namespace minigame
             OeufAnim8.SetActive(false);
             OeufAnim9.SetActive(false);
             OeufAnim10.SetActive(false);
+
+            /*tableau.SetActive(false);
+
+            RestartButton.SetActive(false);*/
             
         }
         void Update()
@@ -73,12 +92,19 @@ namespace minigame
                     timer += Time.deltaTime;
                 }
 
+                if (failHitCount == 3)
+                {
+                    failHitCount = 0;
+                    hitTimeGap = 0;
+                    rhythmIsDecided = false;
+                }
+
                 /*if (Input.GetKeyDown(KeyCode.T) && rhythmIsDecided)
                 {
                     Debug.Log(hitTimeGap);
                 }*/
 
-                if (goToSecondTimer == true)
+            if (goToSecondTimer == true)
                 {
                     secondTimer += Time.deltaTime;
                 }
@@ -151,6 +177,17 @@ namespace minigame
                     Debug.Log("Egg cracked");
                     hitCount = 0;
                     eggCrackSound.Play();
+
+                    /*finalTime = globalTimer.GetComponent<Timer>().timer;
+                    Debug.Log(finalTime);
+
+                    RestartButton.SetActive(true);
+
+                    tableau.SetActive(true);
+
+                    timer.SetActive(false);
+
+                    leaderbordScript.LeaderBoardUpdate();*/
                 }
             }
         }
@@ -221,6 +258,7 @@ namespace minigame
                 firstButtonHit = false;
                 secondButtonHit = true;
                 secondTimer = 0;
+                failHitCount++;
                 eggHitSound.Play();
             }
 
@@ -241,10 +279,23 @@ namespace minigame
                 firstButtonHit = true;
                 secondButtonHit = false;
                 secondTimer = 0;
+                failHitCount++;
                 eggHitSound.Play();
             }
 
             yield return null;
         }
-    }
-}
+
+        /*public void RestartGame()
+        {
+            dough.doughDone = false;
+            tomato.tomatoDone = false;
+            cheese.cheeseDone = false;
+            chorizo.chorizoDone = false;
+            olive.olivePitted = false;
+            eggIsCracked = false;
+
+            SceneManager.LoadScene("StartScene");
+        }*/
+                }
+            }
