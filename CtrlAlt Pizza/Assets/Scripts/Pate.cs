@@ -14,6 +14,7 @@ namespace minigame
         public AudioSource pateSound1;
         public AudioSource pateSound2;
         public AudioSource pateDoneSound;
+        public AudioSource themeSong;
 
         public GameObject Pate1;
         public GameObject Pate2;
@@ -29,6 +30,10 @@ namespace minigame
 
         void Start()
         {
+
+            //themeSong.Play();
+            //themeSong.loop = true;
+
             forward = true;
             back = true;
 

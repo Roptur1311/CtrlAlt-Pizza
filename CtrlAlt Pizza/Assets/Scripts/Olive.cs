@@ -57,55 +57,32 @@ namespace minigame
                     Olive1.SetActive(true);
                 }
 
-                if (hitCount == 2 && !olivePitted)
-                {
-                    Olive1.SetActive(false);
-                    Olive2.SetActive(true);
-                }
+                
 
-                if (hitCount == 3 && !olivePitted)
+                if (hitCount == 2 && !olivePitted)
                 {
                     Olive2.SetActive(false);
                     Olive3.SetActive(true);
                 }
 
-                if (hitCount == 4 && !olivePitted)
-                {
-                    Olive3.SetActive(false);
-                    Olive4.SetActive(true);
-                }
+                
 
-                if (hitCount == 5 && !olivePitted)
+                if (hitCount == 3 && !olivePitted)
                 {
                     Olive4.SetActive(false);
                     Olive5.SetActive(true);
                 }
 
-                if (hitCount == 6 && !olivePitted)
-                {
-                    Olive5.SetActive(false);
-                    Olive6.SetActive(true);
-                }
+                
 
-                if (hitCount == 7 && !olivePitted)
+                if (hitCount == 4 && !olivePitted)
                 {
                     Olive6.SetActive(false);
                     Olive7.SetActive(true);
                 }
+               
 
-                if (hitCount == 8 && !olivePitted)
-                {
-                    Olive7.SetActive(false);
-                    Olive8.SetActive(true);
-                }
-
-                if (hitCount == 9 && !olivePitted)
-                {
-                    Olive8.SetActive(false);
-                    Olive9.SetActive(true);
-                }
-
-                if (hitCount == 10 && !olivePitted)
+                if (hitCount == 5 && !olivePitted)
                 {
                     Olive9.SetActive(false);
                     Olive10.SetActive(true);

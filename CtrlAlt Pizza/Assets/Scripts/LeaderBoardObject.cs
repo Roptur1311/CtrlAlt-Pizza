@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,7 +46,7 @@ namespace minigame
 
             if (PlayerPrefs.HasKey("Highscores") == false)
             {
-                listScores = new List<string>() { "00:50:00 George", "00:55:42 Antoine", "00:58:36 Louise", "00:52:00 Tom", "01:05:00 Clara", "01:03:52 Lisa", "01:12:00 Aurélien", "01:30:14 Emma", "01:10:00 Kevin", "02:00:00 Steve" };
+                listScores = new List<string>() { "2:00:00 George", "03:55:42 Antoine", "02:58:36 Louise", "02:52:00 Tom", "03:05:00 Clara", "01:03:52 Lisa", "03:12:00 Aurélien", "02:30:14 Emma", "03:10:00 Kevin", "04:00:00 Steve" };
                 for (int h = 0; h < listScores.Count; h++)
                 {                   
                     PlayerPrefs.SetString("Highscores" + h, listScores[h]);
